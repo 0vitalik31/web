@@ -1,12 +1,18 @@
-<!DOCTYPE html>
 <html>
-    <style>
-
-    </style>
     <script>
-
+    function pow(elevateNumber,degreeCoeffcent) {
+        let result = 1;
+        for(let i = 0 ; i < degreeCoeffcent; i++) { 
+            result *= elevateNumber;
+        }
+        return result;
+    }
+    let number = prompt ("x?" , '') 
+    degree = prompt("n?",'')
+    if (degree <= 0){
+        alert(`Степень ${degree} не поддерживается, введите целую степень, большую 0`);
+    } else{
+        alert (pow (number ,degree))
+    }
     </script>
-    <body>
-        
-    </body>
 </html>
