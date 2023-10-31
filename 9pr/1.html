@@ -22,8 +22,7 @@
         }
     </style>
     <script>
-        let number = parseInt(prompt("Колличество книг"));
-        library = [number];
+        library = [];
         function book(name,desc,image) {
             this.name = name;
             this.desc = desc;
@@ -31,7 +30,7 @@
         }
           function addBook() {
             let namebook = prompt("Введите название книги")
-            let delBook = prompt("Введите описание")
+            let descbook = prompt("Введите описание")
             let imagebook = prompt("URL на изображение")
             library.push(new book(namebook,descbook,imagebook))        
         };
@@ -39,14 +38,15 @@
             
         };
         function printBookInfo(index) {
-            console.log(library[index])
+            let number = prompt()
+            console.log(JSON.stringify(library[0]))
         };   
     </script>
     <body>
         <div class="header">
             <head>Библиотека</head>
             <button class = "ADDBOOK"; onclick="addBook()"></button>
-            <button class = "DELBOOK"; onclick="delBook()"></button>
+            <button class = "DELBOOK"; onclick="printBookInfo()"></button>
         </div>
     </body>
 </html>
