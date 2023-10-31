@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .header{
+            width: 100%;
+            height: 55px;
+            background-color: lightseagreen;
+        }
+        .ADDBOOK{
+            width: 53px;
+            height: 53px;
+            border: 1px solid green;
+        }
+        .DELBOOK{
+            width: 53px;
+            height: 53px;
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        let number = parseInt(prompt("Колличество книг"));
+        library = [number];
+        function book(name,desc,image) {
+            this.name = name;
+            this.desc = desc;
+            this.image = image;
+        }
+          function addBook() {
+            let namebook = prompt("Введите название книги")
+            let delBook = prompt("Введите описание")
+            let imagebook = prompt("URL на изображение")
+            library.push(new book(namebook,descbook,imagebook))        
+        };
+        function delBook(index) {
+            
+        };
+        function printBookInfo(index) {
+            console.log(library[index])
+        };   
+    </script>
+    <body>
+        <div class="header">
+            <head>Библиотека</head>
+            <button class = "ADDBOOK"; onclick="addBook()"></button>
+            <button class = "DELBOOK"; onclick="delBook()"></button>
+        </div>
+    </body>
+</html>
