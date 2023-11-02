@@ -22,7 +22,7 @@
         }
     </style>
     <script>
-        library = [];
+        import library from './data/library.json';
         function book(name,desc,image) {
             this.name = name;
             this.desc = desc;
@@ -34,10 +34,10 @@
             let imagebook = prompt("URL на изображение")
             library.push(new book(namebook,descbook,imagebook))        
         };
-        function delBook(index) {
+        function delBook() {
             
         };
-        function printBookInfo(index) {
+        function printBookInfo() {
             let number = prompt()
             console.log(JSON.stringify(library[0]))
         };   
