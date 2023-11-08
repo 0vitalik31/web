@@ -15,14 +15,24 @@
             height: 53px;
             border: 1px solid green;
         }
-        .DELBOOK{
+        .INFOBOOK{
             width: 53px;
             height: 53px;
-            border: 1px solid red;
+            border: 1px solid blue;
+        }
+        table{
+            border: 1px solid grey;
+        }
+        th {
+            border: 1px solid grey;
+        }
+        td {
+            border: 1px solid grey;
         }
     </style>
     <script>
-        import library from './data/library.json';
+        library = [];
+        
         function book(name,desc,image) {
             this.name = name;
             this.desc = desc;
@@ -38,15 +48,18 @@
             
         };
         function printBookInfo() {
-            let number = prompt()
-            console.log(JSON.stringify(library[0]))
+            let number = parseInt(prompt("Введите номер книги"))
+            console.log(JSON.stringify(library[number]))
         };   
     </script>
     <body>
         <div class="header">
             <head>Библиотека</head>
             <button class = "ADDBOOK"; onclick="addBook()"></button>
-            <button class = "DELBOOK"; onclick="printBookInfo()"></button>
+            <button class = "INFOBOOK"></button>
+        </div>
+        <div>
+            <table id="Tablebook"><tr onclick="printBookInfo()"><th>Изображение</th><th>Название</th><th>Описание</th></tr></table>
         </div>
     </body>
 </html>
