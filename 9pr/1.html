@@ -20,14 +20,9 @@
             height: 53px;
             border: 1px solid blue;
         }
-        table{
-            border: 1px solid grey;
-        }
-        th {
-            border: 1px solid grey;
-        }
-        td {
-            border: 1px solid grey;
+        .Tables{
+            width: 100%;
+            
         }
     </style>
     <script>
@@ -39,27 +34,44 @@
             this.image = image;
         }
           function addBook() {
-            let namebook = prompt("Введите название книги")
-            let descbook = prompt("Введите описание")
-            let imagebook = prompt("URL на изображение")
-            library.push(new book(namebook,descbook,imagebook))        
-        };
-        function delBook() {
+            let imagebook = prompt("URL на изображение");
+            let namebook = prompt("Введите название книги");
+            let descbook = prompt("Введите описание");
             
+            if (namebook == null || descbook == null || imagebook == null){
+                alert("не введено значение")
+            } else {
+                library.push(new book(namebook,descbook,imagebook));
+                let table = document.getElementById("TableBook");
+                let row = table.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+                let cell4 = row.insertCell(3);
+                cell1.innerHTML = `<img src="${imagebook}" style="width: 90px; height:60px;">`;
+                cell2.innerHTML = namebook;
+                cell3.innerHTML = descbook
+                cell4.innerHTML = '<button onclick="delBook(this)">Delete</button>';
+            }
+
+
+        };
+        function delBook(index) {
+            let i = index.parentNode.parentNode.rowIndex;
+            document.getElementById("TableBook").deleteRow(i);            
         };
         function printBookInfo() {
-            let number = parseInt(prompt("Введите номер книги"))
-            console.log(JSON.stringify(library[number]))
+            let number = parseInt(prompt("Введите номер книги"));
+            console.log(JSON.stringify(library[number]));
         };   
     </script>
     <body>
         <div class="header">
             <head>Библиотека</head>
             <button class = "ADDBOOK"; onclick="addBook()"></button>
-            <button class = "INFOBOOK"></button>
         </div>
         <div>
-            <table id="Tablebook"><tr onclick="printBookInfo()"><th>Изображение</th><th>Название</th><th>Описание</th></tr></table>
+            <table class="Tables" id="TableBook"></table>
         </div>
     </body>
 </html>
