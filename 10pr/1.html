@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<title> Test </title>
+<script>
+    class Item {
+        constructor(name, image, price){
+            this.name = name;
+            this.image = image;
+            this.price = price;
+        }
+        getInfo(name, price){
+            console.log(`${this.name} стоит ${this.price}`)
+        }
+}
+class Armor extends Item{
+    constructor(name, image, price, protect){
+    super(name, image, price)
+    this.protect = protect;
+    }
+    getInfo(name, price){
+            console.log(`${this.name} стоит ${this.price} деревянных, армора ${this.protect} лоб башни`)
+        }
+}
+
+let tank = new Armor("T-72 TURMS-T", "TurmsT.jpg", 4500, 450);
+tank.getInfo()
+</script>
+
+</html>
